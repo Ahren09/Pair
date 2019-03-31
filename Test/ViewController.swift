@@ -29,7 +29,19 @@ UINavigationControllerDelegate {
     
 }
 
-func recommandMusic(image:UIImage){
+func recommandMusic(originalImage:UIImage){
+    let ratio = sqrt(originalImage.size.height * originalImage.size.width / 800 / 600);
+    var image = originalImage
+    if (ratio > 1.1) {
+        print(ratio)
+        let newSize = CGSize(width: originalImage.size.width / ratio, height: originalImage.size.height / ratio)
+        print(newSize)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+        originalImage.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+    }
+    
     var imageData: Data?
     imageData = image.jpegData(compressionQuality: 0.5)
     let url = URL(string: "http://45.33.47.131:3000/image")!
@@ -67,7 +79,7 @@ extension ViewController{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             myImage.image = img
-            recommandMusic(image: img)
+            recommandMusic(originalImage: img)
         }
         dismiss(animated: true, completion: nil)
     }
