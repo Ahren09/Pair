@@ -14,6 +14,7 @@ UINavigationControllerDelegate {
     @IBOutlet weak var photo: UIButton!
     @IBOutlet weak var myImage: UIImageView!
     var imagePicker = UIImagePickerController()
+    @IBOutlet weak var cam: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate=self
@@ -28,6 +29,15 @@ UINavigationControllerDelegate {
         present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func Camera(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            var imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera
+            imagePicker.allowsEditing = false
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
     
 }
 

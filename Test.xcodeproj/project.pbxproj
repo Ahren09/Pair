@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60A0B49F2250A5F000505172 /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A0B49E2250A5F000505172 /* images.png */; };
 		9BC9E25E22509F9600CB0E85 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9BC9E25D22509F9600CB0E85 /* bg.jpg */; };
 		9C6037E6225065DC005CC7C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6037E5225065DC005CC7C9 /* AppDelegate.swift */; };
 		9C6037E8225065DC005CC7C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6037E7225065DC005CC7C9 /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		60A0B49E2250A5F000505172 /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = images.png; path = ../../../../../../Downloads/images.png; sourceTree = "<group>"; };
 		9BC9E25D22509F9600CB0E85 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = SOURCE_ROOT; };
 		9C6037E2225065DC005CC7C9 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C6037E5225065DC005CC7C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				9C6037EC225065DD005CC7C9 /* Assets.xcassets */,
 				9C6037EE225065DD005CC7C9 /* LaunchScreen.storyboard */,
 				9C6037F1225065DD005CC7C9 /* Info.plist */,
+				60A0B49E2250A5F000505172 /* images.png */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C6037F0225065DD005CC7C9 /* LaunchScreen.storyboard in Resources */,
+				60A0B49F2250A5F000505172 /* images.png in Resources */,
 				9C6037ED225065DD005CC7C9 /* Assets.xcassets in Resources */,
 				9BC9E25E22509F9600CB0E85 /* bg.jpg in Resources */,
 				9C6037EB225065DC005CC7C9 /* Main.storyboard in Resources */,
@@ -445,7 +449,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Tyler.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -463,7 +467,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Tyler.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
