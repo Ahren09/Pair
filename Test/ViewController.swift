@@ -30,11 +30,58 @@ UINavigationControllerDelegate {
     
     
 }
+
+func recommandMusic(originalImage:UIImage){
+    let ratio = sqrt(originalImage.size.height * originalImage.size.width / 800 / 600);
+    var image = originalImage
+    if (ratio > 1.1) {
+        print(ratio)
+        let newSize = CGSize(width: originalImage.size.width / ratio, height: originalImage.size.height / ratio)
+        print(newSize)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+        originalImage.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+    }
+    
+    var imageData: Data?
+    imageData = image.jpegData(compressionQuality: 0.5)
+    let url = URL(string: "http://45.33.47.131:3000/image")!
+    let json: [String: String] = ["image": imageData!.base64EncodedString()]
+    let jsonData = try? JSONSerialization.data(withJSONObject: json)
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.httpBody = jsonData
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        guard let data = data, error == nil else {
+            print(error?.localizedDescription ?? "No data")
+            return
+        }
+        var responseURL = String(data: data, encoding: .utf8)!
+        responseURL = String(responseURL.prefix(responseURL.count - 1))
+        
+        print(responseURL)
+        guard let url = URL(string: responseURL) else {
+            print("Error");
+            return;
+        }
+        DispatchQueue.main.async {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        
+    }
+    
+    task.resume()
+}
+
 extension ViewController{
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             myImage.image = img
+            recommandMusic(originalImage: img)
             let label1 : UILabel = self.view.viewWithTag(300) as! UILabel;
             label1.text = "Image Loaded";
             let button1 : UIButton = self.view.viewWithTag(100) as! UIButton;
