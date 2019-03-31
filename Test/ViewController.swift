@@ -31,7 +31,6 @@ UINavigationControllerDelegate {
     
     @IBAction func Camera(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            var imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = .camera
             imagePicker.allowsEditing = false
