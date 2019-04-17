@@ -1,7 +1,7 @@
-# Pair
-##### "Personal Acoustic-Inspiration Relator"
+# Pair 看图识曲
+##### "Personal Acoustic-Inspiration Relator" 
 Developed by:
-Ahren Jin, Tyler Liu, Leo Liu, Max Zhang
+Ahren Jin 靳轶乔, Tyler Liu 刘思齐, Leo Liu 刘梓涵, Max Zhang 张汶博
 
 Standing on top of the Empire State Building or strolling on the Whitehaven beach, we always want to find great musics that would accompany with these marvelous sceneries. This is why we developed PAIR. No matter if you are on a spectacular journey or trapped in your tedious daily routine, PAIR makes your life more enjoyable by playing THE song that best suits your surrounding.
 
@@ -13,7 +13,7 @@ Google Cloud Platform
 
 
 ### What it does
-### Demo Video: [a link](https://youtu.be/yv15PhdNgGI)
+### [Demo Video:](https://youtu.be/yv15PhdNgGI)
 In a nutshell, PAIR pairs you with musics that match your surrounding.
 
 In more details, PAIR allows user to input an image by either importing from camera rolls or taking a new one, and returns a song whose mood best matches with the mood of the input image. If the user has Spotify installed, PAIR would automatically open Spotify and load the song, if not, it would open up the web version of Spotify in Safari.
